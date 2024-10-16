@@ -1,33 +1,18 @@
 import { useState } from "react";
-import { ethers } from "ethers";
-import MessageStorage from "../artifacts/contracts/MessageStorage.sol/MessageStorage.json";
-
-const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your deployed contract address
 
 export default function Home() {
   const [message, setMessage] = useState("");
   const [inputValue, setInputValue] = useState("");
 
-  const provider = new ethers.providers.JsonRpcProvider(
-    process.env.NEXT_PUBLIC_INFURA_URL
-  );
-  const signer = provider.getSigner();
-
-  const contract = new ethers.Contract(
-    contractAddress,
-    MessageStorage.abi,
-    signer
-  );
-
   const handleSetMessage = async () => {
-    const tx = await contract.setMessage(inputValue);
-    await tx.wait();
-    alert("Message set!");
+    // const tx = await contract.setMessage(inputValue);
+    // await tx.wait();
+    // alert("Message set!");
   };
 
   const handleGetMessage = async () => {
-    const msg = await contract.getMessage();
-    setMessage(msg);
+    // const msg = await contract.getMessage();
+    // setMessage(msg);
   };
 
   return (
